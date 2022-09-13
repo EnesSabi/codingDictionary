@@ -92,4 +92,92 @@ Java divides the operators into these following five groups:
 |~   |Bitwise Complement   |``` ~a -> -6 // ``` ~0101 = 1010 |      
 
 Caution with the Bitwise Complement because 1010 is in normal binary to decimal 10, but you need to use the 1's complementary reading.
-If you want to solve fast squares and squareroots shiftoperators are very useful
+If you want to solve fast squares and square roots shiftoperators are very useful
+
+## Strings
+Strings are always surrounded by double quotation marks!
+### methods
+|Method|Explanation
+|-|-|
+|String txt = "Hello World!"   |Syntax
+|txt.length();   |Length of the String
+|txt.toUpperCase();   |Every character to upper case
+|txt.toLowerCase();   |and vice versa
+|txt.indexOf("Hello");   |returns the index of the first occurrence of this specified string
+|txt.concat(txt);   | concatenate two strings **without whitespaces between**
+Concatenation with "+" adds integers and concatenates Strings
+
+### special escape characters
+|Escape character   | Result   | Description   |
+|-|-|-|
+|\'   |'   |Single quote
+|\"   |"   |Double quote  
+|\\   |\   |Backslash
+|\n   |    |New Line
+|\r   |    |Carriage return
+|\t   |    |Tab
+|\b   |    |Backspace
+|\f   |    |Form Feed
+
+## math
+|Methods   |Explanation   |
+|-|-|
+|Math.max(5,10);   |find the highest value   |
+|Math.min(5,10);   |find the lowest value   |
+|Math.sqrt(64);   |square root of 64   |
+|Math.abs(-6.9);   |absolute value   |
+|Math.random()*69;   |exclusive max number   |
+
+## Conditions
+### if Statement
+```java
+if(condition) {/*executable code if true*/}
+```
+### if else Statement
+```java
+if(condition) {/*executable code if true*/}
+else {/*executable code if false*/}
+```
+### else-if Statement
+```java
+if(condition1) {/*executable code if condition1 is true*/}
+else if(condition2) {/*executable code if condition2 true*/}
+else {/*executable code if false*/}
+```
+### short if else Statement
+```java
+datatype varNam = (condition) ? /*returns if true*/ : /*returns if false*/
+```
+### switch
+```java
+switch(expression) {
+  case x: /*code block*/ break;
+  case y: /*code block*/ break;
+  default: /*code blocks*/ break;
+}
+```
+## Loops
+### while loop
+```java
+while (condition) {/*code block*/}
+```
+### do-while loop
+```java
+do {/* code block to be executed*/}
+while (condition);
+```
+### for loop 
+```java
+for (statement 1; statement 2; statement 3)
+{/* code block to be executed*/}
+```
+### for-each loop 
+```java
+for (type varNam : arrayName)
+{/* code block to be executed*/}
+```
+## Arrays
+declare an array with square brackets immediately after the type declaration
+```java 
+datatypes[] varNam = {values}; 
+```
