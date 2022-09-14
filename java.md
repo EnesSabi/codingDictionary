@@ -177,7 +177,37 @@ for (type varNam : arrayName)
 {/* code block to be executed*/}
 ```
 ## Arrays
-declare an array with square brackets immediately after the type declaration
+declare an array with square brackets immediately after the type declaration.
+array indexes starts with 0.
 ```java 
 datatypes[] varNam = {values}; 
 ```
+### methods
+```java
+String[] cars = {"Lamborghini", "Volkswagen", "Königsegg", "Peugeot"};
+System.out.println(cars.length());
+//to iterate use for-each loop for better readability
+for (String i : cars) {
+  System.out.println(i);
+}
+```
+### multidimensional arrays
+```java
+int[][] myNumbers = {{1,2,3,4},{5,6,7}};
+System.out.println(myNumbers[1][2]);
+```
+if you want to iterate over multidimensional arrays you need to use nested for loops
+```java
+for (int i = 0; i < myNumbers.length; ++i) {
+  for(int j = 0; j < myNumbers[i].length; ++j) {
+    System.out.println(myNumbers[i][j]);
+  }
+}
+```
+## Methods
+Methods are a block of code which run if called, also known as functions.
+If you need to reuse code, define the code once and use it many times.
+To create a methode it needs to be created within a class. The class defines the visiblity. Defining a method needs 3 main components:
+1. ```static``` means that the method belongs to the class and is not an object of this class.
+2. Return type, which could be void if it doesn't have a return value
+3. ```methodname()``` is the name of the method followed by two paired parentheses.
