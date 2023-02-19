@@ -211,3 +211,172 @@ To create a methode it needs to be created within a class. The class defines the
 1. ```static``` means that the method belongs to the class and is not an object of this class.
 2. Return type, which could be void if it doesn't have a return value
 3. ```methodname()``` is the name of the method followed by two paired parentheses.
+
+## Keywords
+### super
+The keyword super is used in the class constructor to call the constructor of the superclass.
+Similarly, the super keyword can also be used to call other members (fields, methods) of the superclass, for example, super.someMethod() would call the someMethod() of the superclass.
+
+
+## Classes
+Java uses classes to defines objects that encapsulate data and behavior.
+A class is defined by its keyword ```class```, instance variables and methods, bt only the class definition is mandatory.
+```java
+public class ClassName {  //Class code is placed inside of the curled braces
+  //instances variables which hold the state for an object and should normally be private or protected
+  private int classInt;
+  private String classString;
+  //constructor for object-orientation always public
+  //There are many possiblities to define constructors and you could handle different object calls
+  public ClassName(int inputInt, String inputString) {
+    classInt = inputInt;
+    classString = inputString;
+    //if the instance varibale names and the method parameter have the same name: the object variable needs the this. operator
+    //this.classInt = classInt;
+  } //end of constructor
+  //methods of the class
+  public void doSomething() {
+    System.out.println("Doing something...");
+  }
+} //end of class
+```
+If you want to create objects of this class you need to use the ```new``` operator and arguments as the constructors. To access the instance variable or methods it is necessary to create an object.
+```java
+ClassName classNameObject = new ClassName(42, "Hello");
+classNameObject.doSomething();
+```
+
+## Exceptions
+Java exceptions are a mechanism for handling errors and exceptional conditions that may occur during the execution of a Java program. When an error or an exceptional condition is encountered during program execution, an exception object is created and thrown by the Java Virtual Machine.
+Java exceptions are divided into two categories: checked exceptions and unchecked exceptions. 
+Checked exceptions are exceptions that the compiler requires you to catch or declare in the method signature. These exceptions are typically used for conditions that the program can recover from.
+Unchecked exceptions, on the other hand, are exceptions that do not have to be caught or declared in the method signature. They are typically used for conditions that the program cannot recover from.
+To handle exceptions in Java, you use try-catch blocks. A try block contains the code that might throw an exception, while a catch block contains the code that handles the exception. Multiple catch blocks can be chained together to handle different types of exceptions. You can also include a finally block that contains code that should be executed whether or not an exception is thrown.
+### Examples for checked and unchecked exceptions
+#### Checked Exceptions:
+  1. IOException: This exception is thrown when an input or output operation fails or is interrupted. It is a checked exception, which means that any method that can throw an IOException must declare it in its method signature or handle it with a try-catch block.
+  2. SQLException: This exception is thrown when an error occurs while accessing a database using JDBC. It is also a checked exception, which means that any method that can throw an SQLException must declare it in its method signature or handle it with a try-catch block.
+  3. ClassNotFoundException: This exception is thrown when an attempt is made to load a class at runtime using Class.forName(), but the class cannot be found. It is a checked exception.
+#### Unchecked Exceptions:
+  1. NullPointerException: This exception is thrown when an attempt is made to access a null reference. It is an unchecked exception, which means that it does not have to be caught or declared in the method signature.
+  2. ArrayIndexOutOfBoundsException: This exception is thrown when an attempt is made to access an array with an invalid index. It is also an unchecked exception.
+  3. IllegalArgumentException: This exception is thrown when an illegal argument is passed to a method. It is an unchecked exception.
+### Java Exceptions
+The try block tries to do something which can throw an Exception
+The catch block catches the exception and prints an error message.
+```Java
+try {
+    //do something critical or use something critical
+} catch (Exception e){
+    System.out.println("An Exception is thrown: " + e.getMessage());
+}
+```
+### Custom Exceptions
+You can create your own exceptions in Java by extending the Exception or RuntimeException classes.
+``` Java
+public class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+```
+### Chained Exceptions
+Sometimes it is useful to wrap one exception inside another exception, to provide additional context or information about the error.
+```Java
+try {
+    // some code that throws an exception
+} catch (Exception e) {
+    throw new RuntimeException("An error occurred", e);
+}
+```
+### Multiple Exceptions
+You can use multiple catch blocks to handle different types of exceptions.
+
+```Java
+try {
+    // some code that throws an exception
+} catch (IOException e) {
+    System.out.println("An IO exception occurred: " + e.getMessage());
+} catch (SQLException e) {
+    System.out.println("An SQL exception occurred: " + e.getMessage());
+} catch (Exception e) {
+    System.out.println("An unknown exception occurred: " + e.getMessage());
+}
+```
+## Object-Orientation
+Object-oriented programming (OOP) is a programming paradigm that is based on the concept of "objects", which can contain data and code to manipulate that data. Java is an object-oriented programming language, and as such, it supports the following OOP concepts: Encapsulation, Inheritance, Polymorphism, Abstraction/Interfaces.
+### Encapsulation
+This is the practice of bundling data and the methods that manipulate that data into a single unit, called a class. In Java, the class is the fundamental unit of encapsulation.
+```Java
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
+In this code, we have a Person class that has two private fields: name and age. These fields are not directly accessible from outside the class. Instead, we have public getter and setter methods that allow us to access and modify the fields. By doing this, we can ensure that the data is only accessed and modified in a controlled way, which can make our code more robust and easier to maintain.
+### Inheritance
+This is a mechanism that allows one class to inherit the properties (data and methods) of another class. In Java, inheritance is implemented using the extends keyword.
+```Java
+public class Animal {
+    private String name;
+    
+    public Animal(String name) {
+        this.name = name;
+    }
+    public void makeSound() {
+        System.out.println("Animal is making a sound.");
+    }
+}
+public class Dog extends Animal {
+    public Dog(String name) {
+        super(name);
+    }
+    public void makeSound() {
+        System.out.println("Woof!");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal("Generic Animal");
+        animal.makeSound(); // outputs "Animal is making a sound."
+        
+        Dog dog = new Dog("Rover");
+        dog.makeSound(); // outputs "Woof!"
+        
+        Animal dogAsAnimal = new Dog("Rover");
+        dogAsAnimal.makeSound(); // outputs "Woof!" even though the reference is to an Animal object
+        // More code...
+    }
+}
+```
+In this code, we have two classes: Animal and Dog. Dog is a subclass of Animal, which means that it inherits the properties (in this case, the name field and the makeSound() method) of Animal. However, Dog overrides the makeSound() method to provide its own implementation. We demonstrate inheritance by creating an Animal object and a Dog object, and then assigning the Dog object to an Animal reference. When we call makeSound() on the Animal reference that points to a Dog object, the Dog implementation of makeSound() is called.
+### Polymorphism
+This is the ability of objects of different classes to be treated as if they are of the same type. In Java, polymorphism is implemented through method overloading and method overriding.
+```Java
+```
+### Abstraction/ Interfaces
+This is the process of hiding implementation details and exposing only the essential features of an object. In Java, this can be achieved through abstract classes and interfaces.
+```Java
+```
+## Collections
+
+## Generics and Lambdas
+
+## I/O
