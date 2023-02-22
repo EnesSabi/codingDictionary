@@ -149,27 +149,45 @@ INCLUDE STM32G4xx_REG_ASM.inc
     ldr r0, =extvar
     ldr r1, [r0]
     ```
-## Aritmetic and Logic
-1. addition : ADD Rd, Rn, Rm (Rd <- Rn + Rm)
-2. subtraction:  SUB Rd, Rn, Rm (Rd <- Rn - Rm)
-3. multiplication: MUL Rd, Rn, Rm (Rd <- Rn * Rm)(32-Bit Result!)
-4. bitwise OR: ORR Rd, Rn, Rm (Rd <- Rn or Rm)(logical or)
-5. bitwise AND: AND Rd, Rn, Rm (Rd <- Rn and Rm)(logical and)
-6. bit clear: BIC Rd, Rn, Rm (Rd <- Rn and !Rm)
-7. bitwise XOR: EOR Rd, Rn, Rm (Rd <- Rn + Rm)(logical exclusive or)
-8. bitwise negation: MVN Rd, Rs (Rd <- !Rn)
-## Branch commands
-1. Sprünge
+## Commandgroups
+### Aritmetic and Logic
+| command | Parameter | Function |name|
+|-|-|-|-|
+| ADD | Rd, Rn, Rm | Rd <- Rn + Rm |addition|
+| SUB | Rd, Rn, Rm | Rd <- Rn - Rm | subtraction |
+| MUL | Rd, Rn, Rm | Rd <- Rn * Rm | multiplication 32-Bit Result! |
+| ORR | Rd, Rn, Rm | Rd <- Rn or Rm | bitwise OR / logical or |
+| AND | Rd, Rn, Rm | Rd <- Rn and Rm | bitwise AND / logical and |
+| BIC | Rd, Rn, Rm | Rd <- Rn and !Rm | bit clear |
+| EOR | Rd, Rn, Rm | Rd <- Rn + Rm | bitwise XOR / logical exclusive or|
+| MVN | Rd, Rs | Rd <- !Rn | bitwise negation |
+### Branch commands
+1. Jumps
 1.1 (absolute) B label (PC <- Addr(label))
 1.2 (indirekt) BX Rm (PC <- [Rm])
-2. UP Aufruf
+2. UP call
 2.1 (absolute) BL label (PC <- Addr(label))
 2.2 (indirekt) BLX Rm (PC <- [Rm])
-3. Vergleiche CMP R1, R2 (R1 - R2)
+3. compare CMP R1, R2 (R1 - R2)
 4. conditional jumps
-4.1 BNE label
-4.2 BEQ label
-4.3 BPL label
-4.4 BMI label
+4.1 BNE label (PC <- Addr(label))
+4.2 BEQ label (PC <- Addr(label))
+4.3 BPL label (PC <- Addr(label))
+4.4 BMI label (PC <- Addr(label))
+### Data Transfer and manipulation
+| command | Parameter | Function |name|
+|-|-|-|-|
+| MOV | Rd, Rs | Rd <- Rs | Load from Register |
+| MOV | Rd, #const | Rd <- #const | Load from constant |
+| LDR | Rd, =const | Rd <- #const | alternative MOV |
+| LDR | Rd, [Rn, #offset] | Rd <- SRAM(Rn+#offset) | Load from RAM |
+| STR | Rd, [Rn, #offset] | SRAM(Rn+#offset) <- Rd | Save in RAM |
+| POP | {R1} | R1 <- STACK | Load from Stack |
+| PUSH | {R1} | STACK <- R1 | Save in Stack |
+
+More are in the _Mikrocomputertechnik – Befehlsübersicht THUMB2/Cortex-M3_ by _Prof. Dr. Peter Raab_ at _university of applied sciences Coburg_, licensed under CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/.
+The Cheat Sheet is on my GitHub Page.
+
+
 
 
