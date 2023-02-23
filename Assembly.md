@@ -1,6 +1,7 @@
 # Assembly
 ## Usage
 1. STM32G474 Nucleo with ARMv7-M Architecture
+2. KEILv5 uVision IDE for ARM
 ## Instructions
 Instructions in ARMv7-M are typically written in lowercase and are composed of an opcode and zero or more operands. The ARMv7-M instruction set includes a wide range of instructions for data processing, control flow, memory access, and other tasks.
 ### Syntax
@@ -40,7 +41,7 @@ data:   .word   1234         ; Define a 32-bit word containing the value 1234
 ```
 In this example, the first line defines a label called 'start'. The subsequent lines contain instructions or commands that use various operands to perform operations on registers or memory. Finally, there is a data definition that uses the pseudo command .word to define a 32-bit word containing the value 1234.
 ## Assembly - Directives
-Directives don't create Machine-Code
+Directives aren't Machine-Code.
 There are different types of directives: 
 1. Control directives for the assembler
 2.for defining symbols
@@ -144,6 +145,7 @@ INCLUDE STM32G4xx_REG_ASM.inc
     file2.s
     ```asm
     EXTERN extvar
+    EXPORT main
     ...
     AREA main, code
     ldr r0, =extvar
