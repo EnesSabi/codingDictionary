@@ -190,6 +190,50 @@ INCLUDE STM32G4xx_REG_ASM.inc
 More are in the _Mikrocomputertechnik – Befehlsübersicht THUMB2/Cortex-M3_ by _Prof. Dr. Peter Raab_ at _university of applied sciences Coburg_, licensed under CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/.
 The Cheat Sheet is on my GitHub Page.
 
+## Ports of STM32G4
+### GPIO
+The GPIO (general purpose input/output) tells if an I/O Pin has high or low.
+16 I/O Pins are connected to one Port from A-G (-> max 107 Pins)
+At first after the start-up you need to initialize the relevant parts of the application.
+### Relevant Inits
+1. RCC_AHB2ENR ;Clock activation for Ports
+#### GPIO
+2. GPIOx_MODER ;Configuration of the Ports, Masking, I/O Mode
+3. GPIOx_ODR ;Output Data Register (to set an output)
+4. GPIOx_IDR ;Input Data Register (to read if there is an input)
+#### Timer
+1. RCC_APB1ENR1 ;Interrupts, Timer activation
+2. TIMx_PSC ;Prescaler defines the actual frequency: TimerClock = Peripheral Clock/(PSC[15:0]+1)(protip: Base 10 Hz like 100 Hz)
+3. TIMx_ARR ;Auto Reload Register(After how many seconds the Timer should reload)(protip: If PSC is Base 10 then ARR should be also Base 10)
+4. TIMx_DIER ;DMA/Interrupt Enable Register(0 for UIE and 8 for UDE)
+#### Handler
+1. NVIC_ISERx ;Interrupt Set/Clear Enable Register(to catch the Timerinterrupts from the Interruptsource)
+2. NVIC_ICPRx ; Interrupt Clear Pending Register(both are set the same, but should be before the main program to avoid flawed excecution)
 
+## First Assembly Program
+### The Main Program
+At first there is a keyword, which identifies the beginning of the program. The keyword is ```main```. In the special case which our USAGE defined it could be like this:
+main.s
+```asm
+INCLUDE STM32G4xx_REG_ASM.inc
+EXPORT main
+AREA MAIN, code
 
+;Beginning of the main program
+
+main PROC
+
+;some code
+
+loop
+
+    ;more code
+
+    B loop
+ENDP
+END
+```
+
+### Example program
+Is the example.s in Github
 

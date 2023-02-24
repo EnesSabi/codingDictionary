@@ -377,6 +377,6 @@ This is the process of hiding implementation details and exposing only the essen
 ```
 ## Collections
 
-## Generics and Lambdas
+## Generics and Lambdas (Functional programming)
 
 ## I/O
