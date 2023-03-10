@@ -370,13 +370,116 @@ In this code, we have two classes: Animal and Dog. Dog is a subclass of Animal, 
 ### Polymorphism
 This is the ability of objects of different classes to be treated as if they are of the same type. In Java, polymorphism is implemented through method overloading and method overriding.
 ```Java
+public class MyClass {
+    public int add(int x, int y) {
+        return x + y;
+    }
+    public double add(double x, double y) {
+        return x + y;
+    }
+}
 ```
+In this example, the add method is overloaded to accept both int and double parameters.
 ### Abstraction/ Interfaces
 This is the process of hiding implementation details and exposing only the essential features of an object. In Java, this can be achieved through abstract classes and interfaces.
 ```Java
-```
-## Collections
+public interface Shape {
+    void draw();
+}
+public class Circle implements Shape {
 
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+public class Rectangle implements Shape {
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+```
+In this example, the Circle and Rectangle classes implement the Shape interface, which allows them to be treated as Shape objects.
+Abstracts are a little bit more complicated than interfaces, but both need to be implemented in the subclass
+```Java
+public abstract class Animal {
+    private String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public abstract void makeSound();
+}
+
+```
+In this example, Animal is an abstract class that defines a constructor and a getter method for the name field. The makeSound() method is declared as abstract, which means that any subclass of Animal must provide its own implementation of this method. An abstract class cannot be instantiated, but it can be used as a superclass for other classes.
+## Collections
+### Examples of Collections
+1. List: A List is an ordered collection of elements that can contain duplicate values. The main implementations of List interface are ArrayList, LinkedList, and Vector.
+2. Set: A Set is a collection that contains unique elements, and does not allow duplicates. The main implementations of Set interface are HashSet, TreeSet, and LinkedHashSet.
+3. Map: A Map is a collection of key-value pairs, where each key is unique and maps to a corresponding value. The main implementations of Map interface are HashMap, TreeMap, and LinkedHashMap.
+4. Queue: A Queue is a collection that stores elements in a First-In-First-Out (FIFO) order. The main implementations of Queue interface are LinkedList, PriorityQueue, and ArrayDeque.
+5. Deque: A Deque is a double-ended queue that allows adding or removing elements from both ends. The main implementations of Deque interface are ArrayDeque and LinkedList.
+6. Stack: A Stack is a collection that stores elements in a Last-In-First-Out (LIFO) order. The main implementation of Stack interface is Stack class.
+7. Vector: A Vector is similar to ArrayList but it is synchronized, which means that multiple threads cannot access it at the same time.
+8. Hashtable: A Hashtable is similar to HashMap but it is synchronized, which means that multiple threads cannot access it at the same time.
+It is important to choose the appropriate collection based on the specific requirements of your program.
+### Interface Vector
+```Java
+//import
+import java.util.Vector;
+//Constructor
+Vector(int initialCapacity);
+Vector(int initialCapacity, int capacityIncrement);
+//Inserting
+addElement(Object o);
+insertElementAt(Object o, int index);
+//Access & Management
+public Object elementAt (int index) throws ArrayIndexOutOfBoundException
+public Object firstElement() throws NoSuchElementException
+public lastElement() throws NoSuchElementException
+
+remove(Object o);
+public final boolean isEmpty()
+public final int size()
+```
+The seperation to Arrays are that Objects of the vector class could only save Objects of the class OBJECT.
+### Iterators
+Normally Array iteration needs indexing, because an Array knows the predecessor and the successor. ```for(int i = 0; i < arrayOfChar.length();i ++ {...}) ```
+For Collections there is another solution: Iterator Objects. ```Iterator iter();```
+Iterators always start at the first element and moves between elements. Some methods are 
+```Java
+boolean hasNext(); //Test of successor
+E next(); //returns next element or throws NoSuchElementException
+void remove(); //removes the last returned element
+default void forEachRemaining(Consumer<? super E> action) //This method performs the given action for each remaining element until all elements have been processed or the action throws an exception.
+// Consumer<? super E> action is explained later, but briefly Consumer is a functional interface which represents an operation that accepts a single argument of type E or because of the "? super E" any other super-type of E
+```
+#### Examples with for-loops
+```Java
+Vector <...> v = new Vector<...>();
+//Standard for-loop
+for(Iterator en = v.iterator(); en.hasNext();)
+sum += (Integer) en.next() //Cast is necessary!
+//more elegant for-loop
+for(Object o : v) {
+    sum += (Integer) o; //Cast is necessary!
+}
+//forEach
+v.forEach(d -> d.touch()); //for every element method touch
+```
+Interface Iterable is dependent on Iterator but not vice versa.
+
+### Stack
+// Ab hier weiter
 ## Generics and Lambdas (Functional programming)
 
 ## I/O
+
+## Typical Java Errors
