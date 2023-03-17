@@ -477,7 +477,26 @@ v.forEach(d -> d.touch()); //for every element method touch
 Interface Iterable is dependent on Iterator but not vice versa.
 
 ### Stack
-// Ab hier weiter
+Last-In-First-Out-Principle (LIFO)
+Stack is a bit outdated but is necessary in
+Implementation ```java.util.Stack```
+The constructor ```Stack()```
+Insertion ```public Object push(Object item)```
+Remove ```Object pop() throws EmptyStackException```
+Peek(top element) ```Object peek() throws EmptyStackException ```
+other methods are empty(), search(Object o);
+```java
+Stack<Integer> myStack = neew Stack <>();
+myStack.push(10);
+myStack.push(20);
+myStack.push(30);
+
+System.out.println(myStack.peek()); // prints 30
+System.out.println(myStack.pop()); // prints 30
+System.out.println(myStack.search(20)); // prints 2
+System.out.println(myStack.empty()); // prints false
+```
+
 ## Generics and Lambdas (Functional programming)
 
 ## I/O
