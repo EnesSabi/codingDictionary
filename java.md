@@ -499,6 +499,214 @@ System.out.println(myStack.empty()); // prints false
 
 ## Generics and Lambdas (Functional programming)
 
+### Generics
+Generics in Java allow you to create classes, interfaces, and methods that can work with any data type. This means that you can write code that is reusable and can work with different data types without having to rewrite the same code multiple times.
+
+```java
+public class Box<T> {
+   private T contents;
+
+   public void setContents(T contents) {
+      this.contents = contents;
+   }
+
+   public T getContents() {
+      return contents;
+   }
+}
+```
+In this example,  a class called Box that has a single instance variable contents of type T is defined. The T is a type parameter, which means it can represent any data type.
+Create an instance of Box with any data type by specifying the data type in angle brackets like this:
+
+```java
+Box<Integer> integerBox = new Box<Integer>();
+Box<String> stringBox = new Box<String>();
+```
+There is also a way to use generics with common method structures i.e. printArray
+```java
+public static <T> void printArray(T[] array) {
+   for (T element : array) {
+      System.out.println(element);
+   }
+}
+
+Integer[] intArray = { 1, 2, 3, 4, 5 };
+String[] stringArray = { "apple", "banana", "orange" };
+printArray(intArray);
+printArray(stringArray);
+```
+in this example the declaration of the ```printArray``` methode with generic array parameters ```T[] array``` and the return value of an generic ```<T>``` is done.
+
+### Lambdas
+
+Lambdas in Java are a shorthand way to write anonymous functions. An anonymous function is a function that doesn't have a name and can be passed as an argument to another function. Lambdas allow you to write shorter and more concise code by defining a function in place without the need to define a separate method.
+
+```java
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+names.forEach(name -> System.out.println(name));
+```
+In this example, we define a List of Strings called names that contains four names. We then call the forEach method on the names list, which takes a Lambda expression as an argument. The Lambda expression is defined as name -> System.out.println(name).
+
+This Lambda expression is a shorthand way of defining a function that takes a single argument called name and prints it to the console. We don't need to define a separate method for this function; we can define it inline using the Lambda expression.
+
+The forEach method iterates over each element in the names list and applies the Lambda expression to each element. In this case, the Lambda expression prints each name to the console.
+
+There are different equally important methods in Java:
+1. ```forEach```: This method is defined for collections and streams, and it applies a Lambda expression to each element in the collection or stream.
+2. ```map```: This method is defined for collections and streams, and it applies a Lambda expression to each element in the collection or stream, and returns a new collection or stream with the results.
+3. ```filter```: This method is defined for collections and streams, and it applies a Lambda expression to each element in the collection or stream, and returns a new collection or stream with only the elements that satisfy the condition specified in the Lambda expression.
+3. ```reduce```: This method is defined for collections and streams, and it applies a Lambda expression to combine all the elements in the collection or stream into a single result.
+4. ```sort```: This method is defined for collections and streams, and it sorts the elements in the collection or stream according to a comparison function specified in a Lambda expression.
+5. ```anyMatch, allMatch, noneMatch```: These methods are defined for collections and streams, and they apply a Lambda expression to check if any, all, or none of the elements in the collection or stream satisfy a given condition.
+6. ```flatMap```: This method is defined for streams, and it applies a Lambda expression to each element in the stream, which returns another stream. The flatMap method then merges all the resulting streams into a single stream.
+7. ```collect```: This method is defined for streams, and it collects the elements in the stream into a collection or other data structure specified in a Lambda expression.
+8. ```peek```: This method is defined for streams, and it applies a Lambda expression to each element in the stream, but it doesn't modify the stream. Instead, it allows you to perform some side effects, such as printing debugging information.
+9. ```distinct```: This method is defined for collections and streams, and it returns a new collection or stream with only the distinct elements, based on a comparison function specified in a Lambda expression.
+10. ```skip, limit```: These methods are defined for collections and streams, and they allow you to skip or limit the number of elements in the collection or stream, based on a given condition specified in a Lambda expression.
+11. ```findFirst, findAny```: These methods are defined for collections and streams, and they return the first or any element in the collection or stream that satisfies a given condition specified in a Lambda expression.
+
+These methods provide a wide range of functionality for working with Lambdas in Java, and they are commonly used in many different programming tasks. By learning and understanding these methods, you can become more proficient in using Lambdas in your Java code.
+
 ## I/O
+I/O (input/output) in Java refers to the process of reading input from a source and writing output to a destination. The input and output can come from different sources, such as a file, network socket, keyboard, or screen. In Java, I/O is implemented through the java.io package, which provides classes and methods for reading and writing data.
+
+One of the first I/O Classes is the infamous ```Scanner```-Class.
+```java
+Scanner scanner = new Scanner(System.in);
+System.out.print("Enter your name: ");
+String name = scanner.nextLine();
+System.out.println("Hello, " + name + "!");
+```
+Typically if I/O is the topic, it has something to do with reading or writing of a file or something similar.
+There are 2 distinct ways which look similar:
+```java
+try {
+    PrintWriter writer = new PrintWriter("output.txt", "UTF-8");
+    writer.println("This is some output.");
+    writer.close();
+} catch (IOException e) {
+    System.out.println("Error writing to file: " + e.getMessage());
+}
+
+try {
+    BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+    String line = null;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+    reader.close();
+} catch (IOException e) {
+    System.out.println("Error reading file: " + e.getMessage());
+}
+```
+In the first example, we use the PrintWriter class from the java.io package to write output to a file called "output.txt". We write a line of text to the file using the println() method, and then close the file using the close() method. We also catch any exceptions that might occur while writing to the file.
+In the second example,we use the BufferedReader and FileReader classes from the java.io package to read input from a file called "input.txt". We read the file line by line using the readLine() method, and print each line to the console using the println() method. We also catch any exceptions that might occur while reading the file.
+
+These are just a few examples of I/O in Java, but there are many other classes and methods available for reading and writing data in different formats and from different sources. Understanding I/O is an important part of Java programming, as it allows you to interact with external data sources and produce meaningful output for your applications.
 
 ## Typical Java Errors
+
+1. NullPointerException: This error occurs when you try to access a null reference or variable.
+```java
+String s = null;
+System.out.println(s.length()); // NullPointerException
+
+//Solution
+
+String s = null;
+if (s != null) {
+    System.out.println(s.length());
+}
+
+// OR
+
+String s = null;
+Objects.requireNonNull(s, "s must not be null");
+System.out.println(s.length());
+```
+2. ArrayIndexOutOfBoundsException: This error occurs when you try to access an array element that does not exist.
+```java
+int[] arr = new int[5];
+System.out.println(arr[5]); // ArrayIndexOutOfBoundsException
+
+//Solution
+
+int[] arr = new int[5];
+if (arr.length > 5) {
+    System.out.println(arr[5]);
+}
+
+// OR
+
+int[] arr = new int[5];
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+```
+3. ClassCastException: This error occurs when you try to cast an object to a class that it is not an instance of.
+```java
+Object obj = new Integer(10);
+String s = (String) obj; // ClassCastException
+
+//Solution
+
+Object obj = new Integer(10);
+if (obj instanceof String) {
+    String s = (String) obj;
+    System.out.println(s);
+}
+```
+4. ArithmeticException: This error occurs when you try to divide by zero or perform some other illegal arithmetic operation.
+```java
+int a = 10;
+int b = 0;
+int c = a / b; // ArithmeticException
+
+//Solution
+
+int a = 10;
+int b = 0;
+if (b != 0) {
+    int c = a / b;
+    System.out.println(c);
+}
+
+// OR
+
+int a = 10;
+int b = 0;
+try {
+    int c = a / b;
+    System.out.println(c);
+} catch (ArithmeticException e) {
+    System.out.println("Illegal arithmetic operation");
+}
+```
+5. FileNotFoundException: This error occurs when you try to access a file that does not exist.
+```java
+File file = new File("file.txt");
+Scanner scanner = new Scanner(file); // FileNotFoundException
+
+//Solution
+
+File file = new File("file.txt");
+if (file.exists()) {
+    Scanner scanner = new Scanner(file);
+    System.out.println(scanner.nextLine());
+}
+
+// OR
+
+File file = new File("file.txt");
+try {
+    Scanner scanner = new Scanner(file);
+    System.out.println(scanner.nextLine());
+} catch (FileNotFoundException e) {
+    System.out.println("File not found: " + file.getName());
+}
+```
+These are just a few examples of common Java errors and their solutions, but there are many other errors that can occur in Java programming. By understanding how to identify and solve these errors, you can become a more proficient Java developer and write more robust and error-free code.
+These are the ones which occured in my code and I'm going to update it regularly
+
+Enes Sabi - 13.15.2023
