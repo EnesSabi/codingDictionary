@@ -9,14 +9,3 @@ There is no guarantee that everthing is correct. If you find any faults please i
 * [Casting](https://github.com/EnesSabi/codingDictionary/blob/main/java.md#casting)
 * [Operators](https://github.com/EnesSabi/codingDictionary/blob/main/java.md#operators)
 
-## [HTML]
-
-## [CSS]
-
-## [JavaScript]
-
-## [SQL]
-
-## [C++]
-
-## [Python]
