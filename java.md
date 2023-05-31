@@ -8,7 +8,7 @@ public class Main {
 }
 ```
 
-## Datatypes
+## Datatype
 ### Primitive data types
 ```java
 datatyp varname = value;    // Blueprint
@@ -44,29 +44,29 @@ System.out.println(shortNum); //Output is 69
 ## Operators
 Java divides the operators into these following five groups:
 ### Arithmetic
-|Operator   |Name   |Example  |
-|-----------|-------|--------------|
-|+   |Addition   |``` x + y ```   |
-|-   |Subtraction   |``` x - y ```   |
-|*   |Multiplication   |``` x * y ```   |
-|/   |Division   |``` x / y ```   |
-|%   |Modulus   |``` x % y```   |
-|++   |Increment   |``` i++ ```   |
-|--   |Decrement   |``` i-- ```   |
+| Operator | Name           | Example       |
+|----------|----------------|---------------|
+| +        | Addition       | ``` x + y ``` |
+| -        | Subtraction    | ``` x - y ``` |
+| *        | Multiplication | ``` x * y ``` |
+| /        | Division       | ``` x / y ``` |
+| %        | Modulus        | ``` x % y```  |
+| ++       | Increment      | ``` i++ ```   |
+| --       | Decrement      | ``` i-- ```   |
 ### Assignment
-|Operator   |Same As   |Example   |
-|-----------|-------|--------------|
-|=   |``` x = 69 ```   |``` x = 69 ```   |
-|+=   |``` x = x + 69 ```   |``` x += 69 ```   |
-|-=   |``` x = x - 69 ```   |``` x -= 69 ```   |
-|*=   |``` x = x * 69 ```   |``` x *= 69 ```   |
-|/=   |``` x = x / 69 ```   |``` x /= 69 ```   |
-|%=   |``` x = x % 69 ```   |``` x %= 69 ```   |
-|&=   |``` x = x & 69 ```   |``` x &= 69 ```   |
-||=   |``` x = x | 69 ```   |``` x |= 69 ```   |
-|^=   |``` x = x ^ 69 ```   |``` x ^= 69 ```   |
-|>>=   |``` x = x >> 69 ```   |``` x >>= 69 ```   |
-|<<==   |``` x = x << 69 ```   |``` x <<= 69 ```   |
+| Operator | Same As             | Example          |
+|----------|---------------------|------------------|
+| =        | ``` x = 69 ```      | ``` x = 69 ```   |
+| +=       | ``` x = x + 69 ```  | ``` x += 69 ```  |
+| -=       | ``` x = x - 69 ```  | ``` x -= 69 ```  |
+| *=       | ``` x = x * 69 ```  | ``` x *= 69 ```  |
+| /=       | ``` x = x / 69 ```  | ``` x /= 69 ```  |
+| %=       | ``` x = x % 69 ```  | ``` x %= 69 ```  |
+| &=       | ``` x = x & 69 ```  | ``` x &= 69 ```  |
+|          | =                   | ``` x = x        | 69 ```   |``` x |= 69 ```   |
+| ^=       | ``` x = x ^ 69 ```  | ``` x ^= 69 ```  |
+| >>=      | ``` x = x >> 69 ``` | ``` x >>= 69 ``` |
+| <<==     | ``` x = x << 69 ``` | ``` x <<= 69 ``` |
 ### Comparison
 |Operator   |Name   |Example   |
 |-|-|-|-|
@@ -92,7 +92,7 @@ Java divides the operators into these following five groups:
 |~   |Bitwise Complement   |``` ~a -> -6 // ``` ~0101 = 1010 |      
 
 Caution with the Bitwise Complement because 1010 is in normal binary to decimal 10, but you need to use the 1's complementary reading.
-If you want to solve fast squares and square roots shiftoperators are very useful
+If you want to solve fast squares and square roots shift operators are very useful
 
 ## Strings
 Strings are always surrounded by double quotation marks!
@@ -207,7 +207,7 @@ for (int i = 0; i < myNumbers.length; ++i) {
 ## Methods
 Methods are a block of code which run if called, also known as functions.
 If you need to reuse code, define the code once and use it many times.
-To create a methode it needs to be created within a class. The class defines the visiblity. Defining a method needs 3 main components:
+To create a methode it needs to be created within a class. The class defines the visibility. Defining a method needs 3 main components:
 1. ```static``` means that the method belongs to the class and is not an object of this class.
 2. Return type, which could be void if it doesn't have a return value
 3. ```methodname()``` is the name of the method followed by two paired parentheses.
@@ -222,16 +222,16 @@ Similarly, the super keyword can also be used to call other members (fields, met
 Java uses classes to defines objects that encapsulate data and behavior.
 A class is defined by its keyword ```class```, instance variables and methods, bt only the class definition is mandatory.
 ```java
-public class ClassName {  //Class code is placed inside of the curled braces
+public class ClassName {  //Class code is placed inside the curled braces
   //instances variables which hold the state for an object and should normally be private or protected
   private int classInt;
   private String classString;
   //constructor for object-orientation always public
-  //There are many possiblities to define constructors and you could handle different object calls
+  //There are many possibilities to define constructors, and you could handle different object calls
   public ClassName(int inputInt, String inputString) {
     classInt = inputInt;
     classString = inputString;
-    //if the instance varibale names and the method parameter have the same name: the object variable needs the this. operator
+    //if the instance variable names and the method parameter have the same name: the object variable needs the this. operator
     //this.classInt = classInt;
   } //end of constructor
   //methods of the class
@@ -251,7 +251,7 @@ Java exceptions are a mechanism for handling errors and exceptional conditions t
 Java exceptions are divided into two categories: checked exceptions and unchecked exceptions. 
 Checked exceptions are exceptions that the compiler requires you to catch or declare in the method signature. These exceptions are typically used for conditions that the program can recover from.
 Unchecked exceptions, on the other hand, are exceptions that do not have to be caught or declared in the method signature. They are typically used for conditions that the program cannot recover from.
-To handle exceptions in Java, you use try-catch blocks. A try block contains the code that might throw an exception, while a catch block contains the code that handles the exception. Multiple catch blocks can be chained together to handle different types of exceptions. You can also include a finally block that contains code that should be executed whether or not an exception is thrown.
+To handle exceptions in Java, you use try-catch blocks. A try block contains the code that might throw an exception, while a catch block contains the code that handles the exception. Multiple catch blocks can be chained together to handle different types of exceptions. You can also include a final block that contains code that should be executed whether an exception is thrown.
 ### Examples for checked and unchecked exceptions
 #### Checked Exceptions:
   1. IOException: This exception is thrown when an input or output operation fails or is interrupted. It is a checked exception, which means that any method that can throw an IOException must declare it in its method signature or handle it with a try-catch block.
@@ -427,8 +427,8 @@ In this example, Animal is an abstract class that defines a constructor and a ge
 4. Queue: A Queue is a collection that stores elements in a First-In-First-Out (FIFO) order. The main implementations of Queue interface are LinkedList, PriorityQueue, and ArrayDeque.
 5. Deque: A Deque is a double-ended queue that allows adding or removing elements from both ends. The main implementations of Deque interface are ArrayDeque and LinkedList.
 6. Stack: A Stack is a collection that stores elements in a Last-In-First-Out (LIFO) order. The main implementation of Stack interface is Stack class.
-7. Vector: A Vector is similar to ArrayList but it is synchronized, which means that multiple threads cannot access it at the same time.
-8. Hashtable: A Hashtable is similar to HashMap but it is synchronized, which means that multiple threads cannot access it at the same time.
+7. Vector: A Vector is similar to ArrayList, but it is synchronized, which means that multiple threads cannot access it at the same time.
+8. Hashtable: A Hashtable is similar to HashMap, but it is synchronized, which means that multiple threads cannot access it at the same time.
 It is important to choose the appropriate collection based on the specific requirements of your program.
 ### Interface Vector
 ```Java
@@ -449,7 +449,7 @@ remove(Object o);
 public final boolean isEmpty()
 public final int size()
 ```
-The seperation to Arrays are that Objects of the vector class could only save Objects of the class OBJECT.
+The separation to Arrays are that Objects of the vector class could only save Objects of the class OBJECT.
 ### Iterators
 Normally Array iteration needs indexing, because an Array knows the predecessor and the successor. ```for(int i = 0; i < arrayOfChar.length();i ++ {...}) ```
 For Collections there is another solution: Iterator Objects. ```Iterator iter();```
@@ -497,7 +497,7 @@ System.out.println(myStack.search(20)); // prints 2
 System.out.println(myStack.empty()); // prints false
 ```
 
-## Generics and Lambdas (Functional programming)
+## Generics and Lambdas 
 
 ### Generics
 Generics in Java allow you to create classes, interfaces, and methods that can work with any data type. This means that you can write code that is reusable and can work with different data types without having to rewrite the same code multiple times.
@@ -535,7 +535,7 @@ String[] stringArray = { "apple", "banana", "orange" };
 printArray(intArray);
 printArray(stringArray);
 ```
-in this example the declaration of the ```printArray``` methode with generic array parameters ```T[] array``` and the return value of an generic ```<T>``` is done.
+in this example the declaration of the ```printArray``` methode with generic array parameters ```T[] array``` and the return value of a generic ```<T>``` is done.
 
 ### Lambdas
 
@@ -556,15 +556,15 @@ There are different equally important methods in Java:
 1. ```forEach```: This method is defined for collections and streams, and it applies a Lambda expression to each element in the collection or stream.
 2. ```map```: This method is defined for collections and streams, and it applies a Lambda expression to each element in the collection or stream, and returns a new collection or stream with the results.
 3. ```filter```: This method is defined for collections and streams, and it applies a Lambda expression to each element in the collection or stream, and returns a new collection or stream with only the elements that satisfy the condition specified in the Lambda expression.
-3. ```reduce```: This method is defined for collections and streams, and it applies a Lambda expression to combine all the elements in the collection or stream into a single result.
-4. ```sort```: This method is defined for collections and streams, and it sorts the elements in the collection or stream according to a comparison function specified in a Lambda expression.
-5. ```anyMatch, allMatch, noneMatch```: These methods are defined for collections and streams, and they apply a Lambda expression to check if any, all, or none of the elements in the collection or stream satisfy a given condition.
-6. ```flatMap```: This method is defined for streams, and it applies a Lambda expression to each element in the stream, which returns another stream. The flatMap method then merges all the resulting streams into a single stream.
-7. ```collect```: This method is defined for streams, and it collects the elements in the stream into a collection or other data structure specified in a Lambda expression.
-8. ```peek```: This method is defined for streams, and it applies a Lambda expression to each element in the stream, but it doesn't modify the stream. Instead, it allows you to perform some side effects, such as printing debugging information.
-9. ```distinct```: This method is defined for collections and streams, and it returns a new collection or stream with only the distinct elements, based on a comparison function specified in a Lambda expression.
-10. ```skip, limit```: These methods are defined for collections and streams, and they allow you to skip or limit the number of elements in the collection or stream, based on a given condition specified in a Lambda expression.
-11. ```findFirst, findAny```: These methods are defined for collections and streams, and they return the first or any element in the collection or stream that satisfies a given condition specified in a Lambda expression.
+4. ```reduce```: This method is defined for collections and streams, and it applies a Lambda expression to combine all the elements in the collection or stream into a single result.
+5. ```sort```: This method is defined for collections and streams, and it sorts the elements in the collection or stream according to a comparison function specified in a Lambda expression.
+6. ```anyMatch, allMatch, noneMatch```: These methods are defined for collections and streams, and they apply a Lambda expression to check if any, all, or none of the elements in the collection or stream satisfy a given condition.
+7. ```flatMap```: This method is defined for streams, and it applies a Lambda expression to each element in the stream, which returns another stream. The flatMap method then merges all the resulting streams into a single stream.
+8. ```collect```: This method is defined for streams, and it collects the elements in the stream into a collection or other data structure specified in a Lambda expression.
+9. ```peek```: This method is defined for streams, and it applies a Lambda expression to each element in the stream, but it doesn't modify the stream. Instead, it allows you to perform some side effects, such as printing debugging information.
+10. ```distinct```: This method is defined for collections and streams, and it returns a new collection or stream with only the distinct elements, based on a comparison function specified in a Lambda expression.
+11. ```skip, limit```: These methods are defined for collections and streams, and they allow you to skip or limit the number of elements in the collection or stream, based on a given condition specified in a Lambda expression.
+12. ```findFirst, findAny```: These methods are defined for collections and streams, and they return the first or any element in the collection or stream that satisfies a given condition specified in a Lambda expression.
 
 These methods provide a wide range of functionality for working with Lambdas in Java, and they are commonly used in many different programming tasks. By learning and understanding these methods, you can become more proficient in using Lambdas in your Java code.
 
@@ -578,7 +578,7 @@ System.out.print("Enter your name: ");
 String name = scanner.nextLine();
 System.out.println("Hello, " + name + "!");
 ```
-Typically if I/O is the topic, it has something to do with reading or writing of a file or something similar.
+Typically, if I/O is the topic, it has something to do with reading or writing of a file or something similar.
 There are 2 distinct ways which look similar:
 ```java
 try {
@@ -707,6 +707,6 @@ try {
 }
 ```
 These are just a few examples of common Java errors and their solutions, but there are many other errors that can occur in Java programming. By understanding how to identify and solve these errors, you can become a more proficient Java developer and write more robust and error-free code.
-These are the ones which occured in my code and I'm going to update it regularly
+These are the ones which occurred in my code, and I'm going to update it regularly
 
 Enes Sabi - 13.15.2023
