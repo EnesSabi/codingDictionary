@@ -69,7 +69,7 @@ Java divides the operators into these following five groups:
 | <<==     | ``` x = x << 69 ``` | ``` x <<= 69 ``` |
 ### Comparison
 |Operator   |Name   |Example   |
-|-|-|-|-|
+|------|-------|-------|
 |==   |``` Equal ```   |``` x == y ```   |
 |!=   |``` Not Equal ```   |``` x != y ```   |
 |>   |``` Greater than ```   |``` x > y ```   |
@@ -78,7 +78,7 @@ Java divides the operators into these following five groups:
 |<=   |``` Less than or equal ```   |``` x <= y ```   |
 ### Logical
 |Operator   |Name   |Example   |Description
-|-|-|-|-|
+|-----|-----|-------|-------|
 |&&   |logical and   |``` x && y  ```   |true if statements are true   |
 |I   |logical or   |``` x II y ```   |true if one or many true   |
 |!   |logical not   |``` !(x && y) ```   |reverse result
